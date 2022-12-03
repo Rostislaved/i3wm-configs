@@ -56,7 +56,7 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec palemoon
+bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
@@ -466,8 +466,8 @@ bindsym --release Control+$mod+$Alt+x exec xkill
 
 bindsym Control+$mod+$Alt+f exec "pkill -9 -f firefox"
 
-bindsym $Alt+1 exec "amixer set Master 5%+"
-bindsym $Alt+2 exec "amixer set Master 5%-"
+bindsym $Alt+1 exec "amixer -q -D pulse sset Master 5%+"
+bindsym $Alt+2 exec "amixer -q -D pulse sset Master 5%-"
 bindsym $Alt+q exec "amixer -q -D pulse sset Master toggle"
 
 # Заменяем dmenu на rofi
