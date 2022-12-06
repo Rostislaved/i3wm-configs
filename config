@@ -430,6 +430,8 @@ assign [class="goland"] 2
 assign [class="Telegram"] 8
 assign [class="obsidian"] 9
 
+for_window [title="splash"] floating enable
+
 # Толщина границ окон и title on\off
 for_window [class="Telegram"] border none
 for_window [class="Firefox"] border none
