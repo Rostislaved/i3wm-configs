@@ -482,3 +482,31 @@ bindsym $mod+d exec rofi -show run
 bindsym $mod+grave workspace back_and_forth
 
 exec_always "setxkbmap -layout us,ru -option 'grp:alt_shift_toggle'"
+
+# Бинд на скрипт, который делает mute firefox'у
+bindsym Control+$Alt+q exec "/home/rostislav/.i3/mute_ff.sh"
+
+# Сам скрипт:
+# #!/bin/sh
+# LANGUAGE="en_US"
+
+# app_name="Firefox"
+
+# current_sink_num=''
+# sink_num_check=''
+# app_name_check=''
+
+# pactl list sink-inputs | grep -e "Sink Input" -e "application.name = "  |while read line; do \
+#     sink_num_check=$(echo "$line" |sed -rn 's/^Sink Input #(.*)/\1/p')
+#     if [ "$sink_num_check" != "" ]; then
+#         current_sink_num="$sink_num_check"
+#     else
+#         app_name_check=$(echo "$line" \
+#             |sed -rn 's/application.name = "([^"]*)"/\1/p')
+#         if [ "$app_name_check" = "$app_name" ]; then
+#             echo "$current_sink_num" "$app_name_check"
+
+#             pactl set-sink-input-mute "$current_sink_num" toggle
+#         fi
+#     fi
+# done
