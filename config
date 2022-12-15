@@ -428,7 +428,7 @@ focus_follows_mouse no
 # assign [class="firefox"] 1
 assign [class="goland"] 2
 assign [class="Telegram"] 8
-assign [class="obsidian"] 9
+assign [class="obsidian"] 0
 
 for_window [class="goland" title="splash"] floating enable
 
