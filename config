@@ -451,7 +451,8 @@ exec obsidian
 exec goland
 exec Telegram
 exec --no-startup-id telegram
-
+exec blueman-applet
+exec megasync
 
 ####################################################
 #####################  Биндим  #####################
