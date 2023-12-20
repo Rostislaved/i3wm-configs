@@ -371,7 +371,7 @@ gaps outer 0
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+smart_gaps off
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -434,6 +434,7 @@ for_window [class="goland" title="splash"] floating enable
 
 # Толщина границ окон и title on\off
 for_window [class="Telegram"] border none
+for_window [title="Media viewer"] pixel 12
 for_window [class="Firefox"] border none
 
 
@@ -449,8 +450,8 @@ exec_always "setxkbmap -layout us,ru -option 'grp:alt_shift_toggle'"
 exec firefox
 exec obsidian
 exec goland
-exec Telegram
-exec --no-startup-id telegram
+exec Telegram.sh
+# exec --no-startup-id telegram
 exec blueman-applet
 exec megasync
 
@@ -473,8 +474,8 @@ bindsym --release Control+$mod+$Alt+x exec xkill
 
 bindsym Control+$mod+$Alt+f exec "pkill -9 -f firefox"
 
-bindsym $Alt+1 exec "amixer -q -D pulse sset Master 5%+"
-bindsym $Alt+2 exec "amixer -q -D pulse sset Master 5%-"
+bindsym $Alt+1 exec "amixer -q -D pulse sset Master 3%+"
+bindsym $Alt+2 exec "amixer -q -D pulse sset Master 3%-"
 bindsym $Alt+q exec "amixer -q -D pulse sset Master toggle"
 
 # Заменяем dmenu на rofi
@@ -486,6 +487,17 @@ exec_always "setxkbmap -layout us,ru -option 'grp:alt_shift_toggle'"
 
 # Бинд на скрипт, который делает mute firefox'у
 bindsym Control+$Alt+q exec "/home/rostislav/.i3/mute_ff.sh"
+
+mode "open" {
+    bindsym t exec Telegram.sh;mode "default"
+    bindsym f exec firefox;mode "default"
+    bindsym g exec goland;mode "default"
+    bindsym q exec qbittorrent;mode "default"
+    bindsym d exec datagrip;mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+o mode "open"
 
 # Сам скрипт:
 # #!/bin/sh
