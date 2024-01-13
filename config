@@ -323,7 +323,9 @@ bar {
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
-#	tray_output eDP1
+# To get primary enter in terminal:
+#       xrandr | grep " connected primary" | cut -d " " -f 1
+	tray_output eDP-1
 
 	# bindsym button4 nop
 	# bindsym button5 nop
@@ -499,6 +501,10 @@ mode "open" {
 
 bindsym $mod+o mode "open"
 
+workspace $ws9 output DP-3
+bindsym Control+$mod+$Alt+v exec "xrandr --output DP-3 --rotate left"
+bindsym Control+$mod+$Alt+h exec "xrandr --output DP-3 --rotate normal"
+
 # Сам скрипт:
 # #!/bin/sh
 # LANGUAGE="en_US"
@@ -523,3 +529,6 @@ bindsym $mod+o mode "open"
 #         fi
 #     fi
 # done
+
+
+client.unfocused        #737373 #222222 #888888 #292d2e   #222222
